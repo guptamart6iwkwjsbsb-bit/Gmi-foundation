@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GMI Foundation | Cosmetics Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>GMI Foundation</h2>
+    <nav>
+      <a href="#products">Products</a>
+      <a href="#account">Login</a>
+      <button onclick="showCart()">Cart (<span id="cartCount">0</span>)</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <p>BEAUTY • CARE • CONFIDENCE</p>
+    <h1>Your Beauty,<br><span>Your Way.</span></h1>
+    <p>Explore cosmetics and personal-care essentials.</p>
+    <a class="btn" href="#products">Shop Now</a>
+  </section>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <input id="search" placeholder="Search products..." oninput="renderProducts()">
+    <div id="productList" class="products">Loading products...</div>
+  </section>
+
+  <section id="account">
+    <h2>Customer Account</h2>
+    <form id="authForm">
+      <input id="email" type="email" placeholder="Email address" required>
+      <input id="password" type="password" placeholder="Password (min 6 characters)" minlength="6" required>
+      <button type="button" class="btn" onclick="signup()">Create Account</button>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p id="message"></p>
+    <button id="logoutBtn" onclick="logout()" hidden>Logout</button>
+  </section>
+
+  <section id="cart" hidden>
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <p>Total: ₹<span id="total">0</span></p>
+    <textarea id="address" placeholder="Full delivery address"></textarea>
+    <button class="btn" onclick="placeOrder()">Place Order</button>
+  </section>
+
+  <section id="admin" hidden>
+    <h2>Admin Panel</h2>
+    <form id="productForm">
+      <input id="pName" placeholder="Product name" required>
+      <input id="pPrice" type="number" min="0" placeholder="Price ₹" required>
+      <input id="pStock" type="number" min="0" placeholder="Stock" required>
+      <input id="pImage" type="url" placeholder="Image URL (optional)">
+      <textarea id="pDescription" placeholder="Description"></textarea>
+      <button class="btn">Add Product</button>
+    </form>
+    <h3>Manage Products</h3>
+    <div id="adminProducts"></div>
+    <h3>Orders</h3>
+    <div id="adminOrders"></div>
+  </section>
+
+  <footer>© 2026 GMI Foundation · Cosmetics & Beauty</footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
